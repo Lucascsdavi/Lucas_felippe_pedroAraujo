@@ -5,7 +5,7 @@
 #include <fstream>
 
 #define CLEAR_COMMAND "CLS"
-using namespace std
+using namespace std;
 
 struct Usuario {
     string nome;

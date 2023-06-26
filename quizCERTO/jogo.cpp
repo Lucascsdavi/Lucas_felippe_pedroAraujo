@@ -1,6 +1,8 @@
 #include <iostream>
 #include <time.h>
 
+#define CLEAR_COMMAND "CLS"
+
 using namespace std;
 
 int mostrarMenu();
@@ -33,7 +35,7 @@ int mostrarMenu(){
 	cin>>decisao;
 	switch(decisao){
 		case 1:
-		estado = system("clear");
+		estado = system("CLS");
 		if(estado == -1){
 			mostrarMenu();
 		}
@@ -116,7 +118,7 @@ void jogarRonda(){
 			cout<<"A tua pontuacao é  "<<pontuacao<<"/"<<(i+1)*10<<endl;
 			return;
 		}
-		int estado = system("clear");
+		int estado = system("CLS");
 		if(estado == -1){
 			jogarRonda();
 		}

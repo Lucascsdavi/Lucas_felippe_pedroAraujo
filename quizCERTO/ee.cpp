@@ -1,23 +1,11 @@
 #include <iostream>
 #include <time.h>
 
-#define CLEAR_COMMAND "CLS"
-
 using namespace std;
 
-<<<<<<< Updated upstream
 int mostrarMenu();
 void definirPerguntas();
 void jogarRonda();
-=======
-int op1;
-void definirperguntas();
-void Jogar;
-struct perguntas{
-    int correta;
-    string pergunta, resposta1, resposta2, resposta3, resposta4; 
-}p[10];
->>>>>>> Stashed changes
 
 struct perguntas{
 	int correta;
@@ -45,7 +33,7 @@ int mostrarMenu(){
 	cin>>decisao;
 	switch(decisao){
 		case 1:
-		estado = system("CLS");
+		estado = system("clear");
 		if(estado == -1){
 			mostrarMenu();
 		}
@@ -128,7 +116,7 @@ void jogarRonda(){
 			cout<<"A tua pontuacao é  "<<pontuacao<<"/"<<(i+1)*10<<endl;
 			return;
 		}
-		int estado = system("CLS");
+		int estado = system("clear");
 		if(estado == -1){
 			jogarRonda();
 		}

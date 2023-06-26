@@ -1,43 +1,55 @@
 #include <iostream>
-#include <conio.h>
-#include <locale.h>
-#include <vector>
-#include "funções.cpp"
+#include <fstream>
+#include <string>
+#include <limits>
+#include "Funcoes.cpp"
 
 using namespace std;
 
 
+int main() {
+    int choice;
+    bool loggedIn = false;
+    string loggedInUsername, loggedInName;
 
-int main(){
-     setlocale(LC_ALL, "");
+    do {
+        cout << "Escolha uma opção:\n";
+        cout << "1. Registrar (Sign Up)\n";
+        cout << "2. Entrar (Login)\n";
+        cout << "3. Sair\n";
+        cout << "Digite sua escolha: ";
 
-     setlocale(LC_ALL, "");
+        while (!(cin >> choice)) {
+            cout << "Opção inválida. Tente novamente.\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
 
-    bool sair = false;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Limpa o buffer do teclado
 
-    while (!sair) {
+        switch (choice) {
+            case 1:
+                signUp();
+                break;
+            case 2:
+                loggedIn = login(loggedInUsername, loggedInName);
+                break;
+            case 3:
+                cout << "Encerrando o programa.\n";
+                break;
+            default:
+                cout << "Opção inválida. Tente novamente.\n";
+                break;
+        }
 
-
-
-        opcoes();
-
-        if (op1 == 1) {
-            signUp();
-        } else if (op1 == 2) {
-            signIn();
-        } else if (op1 == 3) {
-            cout << "Saindo..." << endl;
-            sair = true;
-        } else {
-            cout << "Op��o inv�lida." << endl;
-            system("PAUSE");
+        if (loggedIn) {
+            cout << "Login bem-sucedido!\n";
+            cout << "Usuário logado: " << loggedInName << " (" << loggedInUsername << ")\n";
+            loggedIn = false;
         }
 
         cout << endl;
-    }
+    } while (choice != 3);
 
     return 0;
-
 }
-
-
